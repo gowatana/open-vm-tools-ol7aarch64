@@ -1,0 +1,22 @@
+From c1bd2508943a462acdde8dd0914a36e9fd5b50c6 Mon Sep 17 00:00:00 2001
+From: Ashish Samant <ashish.samant@oracle.com>
+Date: Mon, 15 Aug 2016 15:59:23 -0400
+Subject: [PATCH] fix spaces in vmware udev rule for scsi devices
+
+Orabug: 24461968
+
+Signed-off-by: Ashish Samant <ashish.samant@oracle.com>
+---
+ 99-vmware-scsi-timeout.rules | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/99-vmware-scsi-timeout.rules b/99-vmware-scsi-timeout.rules
+index 598d57a..e3729c0 100644
+--- a/open-vm-tools/99-vmware-scsi-timeout.rules
++++ b/open-vm-tools/99-vmware-scsi-timeout.rules
+@@ -1 +1 @@
+-ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="VMware ", ATTRS{model}=="Virtual disk ", RUN+="/bin/sh -c 'echo 180 > /sys$DEVPATH/timeout'"
++ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="VMware  ", ATTRS{model}=="Virtual disk    ", RUN+="/bin/sh -c 'echo 180 > /sys$DEVPATH/timeout'"
+-- 
+1.8.3.1
+

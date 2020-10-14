@@ -1,0 +1,28 @@
+From ce9da81c7fef3b30f458d191542c8e1029ada361 Mon Sep 17 00:00:00 2001
+From: Ashish Samant <ashish.samant@oracle.com>
+Date: Fri, 16 Oct 2015 17:02:29 -0700
+Subject: [PATCH] add-vmware-udev-rule-for-scsi-devices
+
+Increase timeout for scsi devices on VMWare guests.
+
+Orabug: 21819156
+
+Signed-off-by : Ashish Samant <ashish.samant@oracle.com>
+Reviewed-by : Todd Vierling <todd.vierling@oracle.com>
+---
+ 99-vmware-scsi-timeout.rules | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 99-vmware-scsi-timeout.rules
+
+diff --git a/99-vmware-scsi-timeout.rules b/99-vmware-scsi-timeout.rules
+new file mode 100644
+index 0000000..1f12d0b
+--- /dev/null
++++ b/open-vm-tools/99-vmware-scsi-timeout.rules
+@@ -0,0 +1,3 @@
++ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="VMware ",
++ATTRS{model}=="Virtual disk ", RUN+="/bin/sh -c 'echo 180
++>/sys$DEVPATH/timeout'"
+-- 
+1.8.3.2
+

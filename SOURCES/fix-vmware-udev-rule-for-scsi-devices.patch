@@ -1,0 +1,24 @@
+From 629c5112b52bfe8f157879cfd1290d351e624e8e Mon Sep 17 00:00:00 2001
+From: Ashish Samant <ashish.samant@oracle.com>
+Date: Wed, 24 Feb 2016 11:45:50 -0500
+Subject: [PATCH] fix-vmware-udev-rule-for-scsi-devices
+
+Orabug: 22815019
+
+Signed-off-by: Ashish Samant <ashish.samant@oracle.com>
+---
+ 99-vmware-scsi-timeout.rules | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/99-vmware-scsi-timeout.rules b/99-vmware-scsi-timeout.rules
+index 1f12d0b..598d57a 100644
+--- a/open-vm-tools/99-vmware-scsi-timeout.rules
++++ b/open-vm-tools/99-vmware-scsi-timeout.rules
+@@ -1,3 +1 @@
+-ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="VMware ",
+-ATTRS{model}=="Virtual disk ", RUN+="/bin/sh -c 'echo 180
+->/sys$DEVPATH/timeout'"
++ACTION=="add", SUBSYSTEMS=="scsi", ATTRS{vendor}=="VMware ", ATTRS{model}=="Virtual disk ", RUN+="/bin/sh -c 'echo 180 > /sys$DEVPATH/timeout'"
+-- 
+1.8.3.1
+
