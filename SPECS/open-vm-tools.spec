@@ -19,9 +19,9 @@
 ################################################################################
 
 %global _hardened_build 1
-%global majorversion    11.1
-%global minorversion    5
-%global toolsbuild      16724464
+%global majorversion    11.2
+%global minorversion    0
+%global toolsbuild      16938113
 %global toolsversion    %{majorversion}.%{minorversion}
 %global toolsdaemon     vmtoolsd
 %global vgauthdaemon    vgauthd
@@ -328,7 +328,10 @@ fi
 %{_bindir}/vmware-vgauth-smoketest
 
 %changelog
-* Wed Oct 14 2020 Go Watanabe <gowatana@vmtn.jp> - 11.1.5-1.0.0
+* Mon Nov 02 2020 Go Watanabe <gowatana@vmtn.jp> - 11.2.0-1.gowatana.el7
+- update open-vm-tools.
+
+* Wed Oct 14 2020 Go Watanabe <gowatana@vmtn.jp> - 11.1.5-1.gowatana.el7
 - Custom Build for ESXi on ARM. - Raspberry Pi 4 B
   This is an experimental build.
   original .spec and files:
