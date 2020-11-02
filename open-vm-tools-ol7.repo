@@ -1,0 +1,11 @@
+[ol7_ovt_aarch64]
+name=Oracle Linux 7 open-vm-tools custom-build($basearch)
+baseurl=https://gowatana.github.io/open-vm-tools-ol7aarch64/RPMS
+gpgcheck=0
+enabled=1
+
+[ol7_ovt_src]
+name=Oracle Linux 7 open-vm-tools custom-build(src)
+baseurl=https://gowatana.github.io/open-vm-tools-ol7aarch64/SRPMS
+gpgcheck=0
+enabled=1
